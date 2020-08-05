@@ -6,6 +6,10 @@
   border-bottom: 10px solid black;
 }
 
+#currentDay {
+  padding-top: 10px;
+  font-weight: bold;
+}
 
 
 
@@ -39,6 +43,7 @@ textarea{
   padding-top: 30px;
   border: 1px dashed black;
   border-radius: 15px;
+  padding: 10px;
 }
 
 .time-block{
