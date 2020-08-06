@@ -12,7 +12,7 @@
 
 
 /////FOR THE MOMENT TIMER
-var momentTimer = moment().format('MMMM Do YYYY, h:mm: A');
+var momentTimer = moment().format('MMMM Do YYYY, h:mm A');
 
 var currentDay = $("currentDay")
 $("#currentDay").append(momentTimer)
@@ -21,58 +21,43 @@ console.log(momentTimer)
 var currentHour = moment().hour()
 console.log(moment().hour())
 
-    for (var i = 0; i < 18; i++) {
-        if (i < currentHour)
-        {
-         $("#" + i).addClass("past")
-        }
-        else if (i === currentHour)
-            {
-             $("#" + i).addClass("present")
-            }
-            else 
-            {
-            $("#" + i).addClass("future")
-            }
+for (var i = 0; i < 18; i++) {
+    if (i < currentHour) {
+        $("#" + i).addClass("past")
     }
-
-
-
-/////SUBMIT THE TASKS
-////$(".btn").on("click", function(){
-    //var shoppingItem = $("#input").val();
-    //$("#list").append(`<li>${shoppingItem} <button class="purchaseButton">Purchased</button></li>`);
-//})
-//$("#list").on("click", ".purchaseButton", function(){
-    //$(this).parent("li").css("display","none")
-//})
-
+    else if (i === currentHour) {
+        $("#" + i).addClass("present")
+    }
+    else {
+        $("#" + i).addClass("future")
+    }
+}
 
 
 //accept user input and store it as a variable
 //add the usertext content to that variable
 //append the usertext content to class/div/id
 
-$(".saveBtn").on("click", function(){
-    
-  
+$(".saveBtn").on("click", function () {
+
     var time = $(this).attr("data-time")
     var descriptionOfTask = $("#" + time).val();
-    console.log(descriptionOfTask);
+    //console.log(descriptionOfTask);
     localStorage.setItem(time, descriptionOfTask)
-    })
-  
-    
+})
+
+
 function placeTextInTaskSection() {
-   
-   
+
+
     for (var i = 0; i < 18; i++) {
-        var savedTime = localStorage.getItem(i+"")
-        if (savedTime !== null){
-        $("#"+i+"").val(savedTime)
-        }
+        var savedTime = localStorage.getItem(i + "")
+        if (savedTime !== null) {
+            $("#" + i + "").val(savedTime)
+            console.log(savedTime)
+        } 
     }
-}    
+}
 
 placeTextInTaskSection()
 
